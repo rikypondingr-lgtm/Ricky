@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luxury Premium Customer Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0b1220;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),
+    url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1920&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:25px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#f8d37b;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:70px;
+    max-width:900px;
+    line-height:1.1;
+}
+
+.hero-content p{
+    max-width:700px;
+    margin-top:20px;
+    color:#ddd;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.main-btn{
+    margin-top:35px;
+    padding:16px 40px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#f8d37b,#d6a84f);
+    color:#111;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+    box-shadow:0 10px 30px rgba(248,211,123,0.4);
+}
+
+.main-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+/* GLASS CARD */
+
+.glass{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border-radius:35px;
+    padding:35px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* UPLOAD SECTION */
+
+.upload-wrapper{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin-top:-100px;
+}
+
+/* UPLOAD BOX */
+
+.upload-box{
+    border:2px dashed rgba(255,255,255,0.2);
+    border-radius:30px;
+    padding:50px 20px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.upload-box:hover{
+    border-color:#f8d37b;
+}
+
+.upload-box img{
+    width:90px;
+    margin-bottom:15px;
+}
+
+.upload-box h2{
+    margin-bottom:10px;
+    font-size:28px;
+}
+
+.upload-box span{
+    color:#ccc;
+}
+
+input[type="file"]{
+    display:none;
+}
+
+/* PREVIEW */
+
+.preview{
+    margin-top:25px;
+    display:none;
+}
+
+.preview img{
+    width:100%;
+    max-height:350px;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+/* BUTTONS */
+
+.btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:50px;
+    margin-top:20px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.upload-btn{
+    background:linear-gradient(135deg,#f8d37b,#d6a84f);
+    color:#111;
+}
+
+.save-btn{
+    background:linear-gradient(135deg,#00d26a,#00a651);
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* GALLERY */
+
+.gallery-title{
+    font-size:35px;
+    margin-bottom:25px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.gallery-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.5);
+}
+
+.gallery-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.gallery-card:hover img{
+    transform:scale(1.1);
+}
+
+.gallery-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+    display:flex;
+    align-items:flex-end;
+    padding:15px;
+}
+
+.gallery-overlay h3{
+    font-size:18px;
+}
+
+/* CONTACT SECTION */
+
+.contact-section{
+    margin-top:60px;
+    margin-bottom:80px;
+}
+
+.contact-title{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.contact-text{
+    color:#ccc;
+    margin-bottom:30px;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box input,
+.input-box textarea{
+    width:100%;
+    padding:18px;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:16px;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.input-box input::placeholder,
+.input-box textarea::placeholder{
+    color:#ccc;
+}
+
+.contact-btn{
+    background:linear-gradient(135deg,#25D366,#128C7E);
+    color:white;
+    box-shadow:0 10px 30px rgba(37,211,102,0.4);
+}
+
+/* CONTACT CARDS */
+
+.contact-cards{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.contact-card{
+    padding:25px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.08);
+    text-align:center;
+}
+
+.contact-card h2{
+    margin-bottom:10px;
+    color:#f8d37b;
+}
+
+.contact-card p{
+    color:#ddd;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,0.1);
+    color:#bbb;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .upload-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content h1{
+        font-size:45px;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- CONTACT SECTION -->
+
+<section class="contact-section glass">
+
+<h1 class="contact-title">
+Customer Contact Details
+</h1>
+
+<p class="contact-text">
+Save customer name, mobile number, WhatsApp and Gmail details.
+</p>
+
+<form id="contactForm">
+
+<div class="input-box">
+<input type="text" id="name" placeholder="Customer Name" required>
+</div>
+
+<div class="input-box">
+<input type="number" id="mobile" placeholder="Mobile Number" required>
+</div>
+
+<div class="input-box">
+<input type="number" id="whatsapp" placeholder="WhatsApp Number" required>
+</div>
+
+<div class="input-box">
+<input type="email" id="gmail" placeholder="Gmail Address" required>
+</div>
+
+<div class="input-box">
+<textarea rows="5" placeholder="Customer Message"></textarea>
+</div>
+
+<button type="submit" class="btn contact-btn">
+Save Customer Details
+</button>
+
+</form>
+
+<!-- CONTACT DISPLAY -->
+
+<div class="contact-cards" id="contactCards"></div>
+
+</section>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+© 2026 Luxury Premium Customer Home Page
+</footer>
+
+/* Ricky Ponding */
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA01G4GTTRo5uksjWDyuZ6PWoLJPvVc6Sg",
+  authDomain: "contact-6c942.firebaseapp.com",
+  databaseURL: "https://contact-6c942-default-rtdb.firebaseio.com",
+  projectId: "contact-6c942",
+  storageBucket: "contact-6c942.firebasestorage.app",
+  messagingSenderId: "457284522931",
+  appId: "1:457284522931:web:8ac6fb6c1e5c2fe76b31c6",
+  measurementId: "G-25KCBW5N66"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+const storage = getStorage(app);
+
+
+/* ELEMENTS */
+
+const fileInput = document.getElementById("fileInput");
+const preview = document.getElementById("preview");
+const previewImg = document.getElementById("previewImg");
+const gallery = document.getElementById("gallery");
+
+const contactForm = document.getElementById("contactForm");
+const contactCards = document.getElementById("contactCards");
+
+
+/* IMAGE PREVIEW */
+
+if(fileInput){
+
+fileInput.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(file){
+
+        const reader = new FileReader();
+
+        reader.onload = function(e){
+
+            previewImg.src = e.target.result;
+
+            preview.style.display = "block";
+
+        };
+
+        reader.readAsDataURL(file);
+
+    }
+
+});
+
+}
+
+
+/* SAVE IMAGE */
+
+window.saveImage = async function(){
+
+    const file = fileInput.files[0];
+
+    if(!file){
+
+        alert("Please select image");
+
+        return;
+
+    }
+
+    try{
+
+        const fileName = Date.now() + "_" + file.name;
+
+        const storageRef = ref(storage, "gallery/" + fileName);
+
+        await uploadBytes(storageRef, file);
+
+        const imageUrl = await getDownloadURL(storageRef);
+
+        await addDoc(collection(db, "gallery"), {
+
+            image: imageUrl,
+            title: "Premium Customer",
+            created: new Date()
+
+        });
+
+        alert("Image Saved");
+
+        loadGallery();
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        alert(error.message);
+
+    }
+
+};
+
+
+/* LOAD GALLERY */
+
+async function loadGallery(){
+
+    if(!gallery) return;
+
+    gallery.innerHTML = "";
+
+    const querySnapshot = await getDocs(
+        collection(db, "gallery")
+    );
+
+    querySnapshot.forEach((doc)=>{
+
+        const data = doc.data();
+
+        const card = document.createElement("div");
+
+        card.classList.add("gallery-card");
+
+        card.innerHTML = `
+
+            <img src="${data.image}">
+
+            <div class="gallery-overlay">
+                <h3>${data.title}</h3>
+            </div>
+
+        `;
+
+        gallery.appendChild(card);
+
+    });
+
+}
+
+
+/* SAVE CUSTOMER */
+
+if(contactForm){
+
+contactForm.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+
+    const mobile = document.getElementById("mobile").value;
+
+    const whatsapp = document.getElementById("whatsapp").value;
+
+    const gmail = document.getElementById("gmail").value;
+
+    try{
+
+        await addDoc(collection(db, "customers"), {
+
+            name,
+            mobile,
+            whatsapp,
+            gmail,
+            created: new Date()
+
+        });
+
+        alert("Customer Saved");
+
+        contactForm.reset();
+
+        loadCustomers();
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        alert(error.message);
+
+    }
+
+});
+
+}
+
+
+/* LOAD CUSTOMERS */
+
+async function loadCustomers(){
+
+    if(!contactCards) return;
+
+    contactCards.innerHTML = "";
+
+    const querySnapshot = await getDocs(
+        collection(db, "customers")
+    );
+
+    querySnapshot.forEach((doc)=>{
+
+        const data = doc.data();
+
+        const card = document.createElement("div");
+
+        card.classList.add("contact-card");
+
+        card.innerHTML = `
+
+            <h2>${data.name}</h2>
+            <p> Thank you for choosing us. Your details have been received successfully, and our team will contact you shortly to provide personalized assistance. </p>
+        `;
+
+        contactCards.appendChild(card);
+
+    });
+
+}
+
+
+/* AUTO LOAD */
+
+loadGallery();
+
+loadCustomers();
+
+
+</script>
+</body>
+</html>

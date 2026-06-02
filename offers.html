@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luxury U.S. Polo Offers Zone</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#060b16;
+    color:white;
+    overflow-x:hidden;
+}
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#d6a84f;
+    border-radius:20px;
+}
+
+/* HERO */
+
+.hero{
+    width:100%;
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.82)),
+    url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1920&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    position:relative;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:25px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:800;
+    color:#f8d37b;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#f8d37b;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:80px;
+    line-height:1.1;
+    max-width:1000px;
+    font-weight:800;
+}
+
+.hero-content span{
+    color:#f8d37b;
+}
+
+.hero-content p{
+    margin-top:25px;
+    max-width:750px;
+    color:#ddd;
+    line-height:1.8;
+    font-size:18px;
+}
+
+/* BUTTONS */
+
+.hero-btns{
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.btn{
+    padding:18px 40px;
+    border:none;
+    border-radius:60px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.gold-btn{
+    background:linear-gradient(135deg,#f8d37b,#d6a84f);
+    color:#111;
+    box-shadow:0 10px 30px rgba(248,211,123,0.4);
+}
+
+.dark-btn{
+    background:rgba(255,255,255,0.08);
+    color:white;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.btn:hover{
+    transform:translateY(-6px);
+}
+
+/* OFFER CARDS */
+
+.offer-zone{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    margin-top:-80px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.offer-card{
+    padding:35px;
+    border-radius:35px;
+    text-align:center;
+    transition:0.5s;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+.offer-card:hover{
+    transform:translateY(-12px);
+}
+
+.offer-card h1{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.offer-card p{
+    color:#eee;
+    margin-bottom:20px;
+}
+
+.offer50{
+    background:linear-gradient(135deg,#ff4b2b,#ff416c);
+}
+
+.offer25{
+    background:linear-gradient(135deg,#ff9966,#ff5e62);
+}
+
+.offer20{
+    background:linear-gradient(135deg,#f8d37b,#d6a84f);
+    color:#111;
+}
+
+.offer20 p{
+    color:#111;
+}
+
+.offer10{
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+}
+
+/* PRODUCTS */
+
+.products-section{
+    width:90%;
+    max-width:1350px;
+    margin:90px auto;
+}
+
+.section-title{
+    font-size:45px;
+    margin-bottom:35px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+    gap:35px;
+}
+
+/* PRODUCT CARD */
+
+.product-card{
+    background:rgba(255,255,255,0.07);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:35px;
+    overflow:hidden;
+    transition:0.5s;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+}
+
+.product-card:hover{
+    transform:translateY(-12px);
+}
+
+.product-image{
+    position:relative;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    transition:0.6s;
+}
+
+.product-card:hover img{
+    transform:scale(1.08);
+}
+
+.badge{
+    position:absolute;
+    top:20px;
+    left:20px;
+    padding:10px 20px;
+    border-radius:50px;
+    font-size:15px;
+    font-weight:700;
+    z-index:10;
+}
+
+.badge50{
+    background:#ff416c;
+}
+
+.badge25{
+    background:#ff9966;
+}
+
+.badge20{
+    background:#f8d37b;
+    color:#111;
+}
+
+.badge10{
+    background:#0072ff;
+}
+
+.product-content{
+    padding:28px;
+}
+
+.product-content h2{
+    margin-bottom:12px;
+    font-size:28px;
+}
+
+.product-content p{
+    color:#ccc;
+    line-height:1.7;
+}
+
+.price-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:#aaa;
+    font-size:18px;
+}
+
+.new-price{
+    color:#f8d37b;
+    font-size:34px;
+    font-weight:700;
+}
+
+/* BUTTONS */
+
+.buy-btn,
+.upload-btn{
+    width:100%;
+    padding:16px;
+    margin-top:20px;
+    border:none;
+    border-radius:50px;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.buy-btn{
+    background:linear-gradient(135deg,#25D366,#128C7E);
+}
+
+.upload-btn{
+    background:linear-gradient(135deg,#111,#333);
+}
+
+.buy-btn:hover,
+.upload-btn:hover{
+    transform:scale(1.03);
+}
+
+/* ADMIN */
+
+.admin-panel{
+    width:90%;
+    max-width:900px;
+    margin:60px auto;
+    background:rgba(255,255,255,0.06);
+    padding:35px;
+    border-radius:30px;
+    display:none;
+}
+
+.admin-panel input{
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:none;
+    border-radius:15px;
+    outline:none;
+    font-size:16px;
+}
+
+#imageInput{
+    display:none;
+}
+
+/* BANNER */
+
+.banner{
+    width:90%;
+    max-width:1300px;
+    margin:100px auto;
+    padding:70px;
+    border-radius:40px;
+    background:
+    linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+    url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1920&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    text-align:center;
+}
+
+.banner h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.banner p{
+    max-width:700px;
+    margin:auto;
+    color:#ddd;
+    line-height:1.8;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    color:#bbb;
+    margin-top:80px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-content h1{
+    font-size:48px;
+}
+
+.banner h1{
+    font-size:38px;
+}
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+<nav>
+
+<div class="logo">
+U.S. POLO
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="shirt.html">New arrival</a></li>
+</ul>
+
+</nav>
+
+<div class="hero-content">
+
+<h1>
+Luxury <span>Premium Fashion</span> Offers Zone
+</h1>
+
+<p>
+Exclusive men’s U.S. Polo luxury shirt and pant collections with premium quality fashion offers and modern stylish designs.
+</p>
+
+<div class="hero-btns">
+
+<button class="btn gold-btn">
+Explore Offers
+</button>
+
+<button class="btn dark-btn">
+Luxury Collection
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- OFFERS -->
+
+<section class="offer-zone">
+
+<div class="offer-card offer50" onclick="showOffer('50')">
+
+<h1>50%</h1>
+
+<p>Luxury U.S. Polo Offers</p>
+
+<button class="upload-btn" onclick="openUpload('50');event.stopPropagation();">
+Upload 50% Image
+</button>
+
+</div>
+
+<div class="offer-card offer25" onclick="showOffer('25')">
+
+<h1>25%</h1>
+
+<p>Premium Luxury Offers</p>
+
+<button class="upload-btn" onclick="openUpload('25');event.stopPropagation();">
+Upload 25% Image
+</button>
+
+</div>
+
+<div class="offer-card offer20" onclick="showOffer('20')">
+
+<h1>20%</h1>
+
+<p>Premium Fashion Offers</p>
+
+<button class="upload-btn" onclick="openUpload('20');event.stopPropagation();">
+Upload 20% Image
+</button>
+
+</div>
+
+<div class="offer-card offer10" onclick="showOffer('10')">
+
+<h1>10%</h1>
+
+<p>Exclusive Style Offers</p>
+
+<button class="upload-btn" onclick="openUpload('10');event.stopPropagation();">
+Upload 10% Image
+</button>
+
+</div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products-section">
+
+<h1 class="section-title" id="sectionTitle">
+50% Luxury U.S. Polo Offers
+</h1>
+
+<div class="products" id="products"></div>
+
+</section>
+
+<!-- ADMIN PANEL -->
+
+<section class="admin-panel" id="adminPanel">
+
+<h1 style="margin-bottom:20px;">
+Admin Upload Offer
+</h1>
+
+<input type="password" id="adminPassword" placeholder="Enter Password">
+
+<button class="upload-btn" onclick="checkPassword()">
+Open Upload Panel
+</button>
+
+<div id="uploadBox" style="display:none; margin-top:30px;">
+
+<input type="text" id="productName" placeholder="Product Name">
+
+<input type="text" id="oldPrice" placeholder="Old Price">
+
+<input type="text" id="newPrice" placeholder="New Price">
+
+<input type="file" id="imageInput" accept="image/*">
+
+<button class="upload-btn" onclick="document.getElementById('imageInput').click()">
+Select Offer Image
+</button>
+
+<button class="upload-btn" onclick="uploadProduct()">
+Upload Offer
+</button>
+
+</div>
+
+</section>
+
+<!-- BANNER -->
+
+<section class="banner">
+
+<h1>
+Luxury Premium Fashion World
+</h1>
+
+<p>
+Upgrade your fashion style with exclusive premium shirts, pants and luxury collections designed for modern men.
+</p>
+
+</section>
+
+<footer>
+© 2026 Luxury Premium U.S. Polo Offers Zone
+</footer>
+
+<script>
+
+const products = document.getElementById("products");
+const sectionTitle = document.getElementById("sectionTitle");
+
+let currentOffer = "50";
+
+const data = {
+
+"50":[
+{
+img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=900&auto=format&fit=crop",
+name:"U.S. Polo White Shirt",
+old:"₹4999",
+newp:"₹2499",
+badge:"50% OFF",
+badgeClass:"badge50"
+}
+],
+
+"25":[
+{
+img:"https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=900&auto=format&fit=crop",
+name:"Luxury 25% Offer",
+old:"₹5999",
+newp:"₹4499",
+badge:"25% OFF",
+badgeClass:"badge25"
+}
+],
+
+"20":[
+{
+img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=900&auto=format&fit=crop",
+name:"Premium Luxury Shirt",
+old:"₹3999",
+newp:"₹3199",
+badge:"20% OFF",
+badgeClass:"badge20"
+}
+],
+
+"10":[
+{
+img:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=900&auto=format&fit=crop",
+name:"Luxury Black Pant",
+old:"₹4599",
+newp:"₹4139",
+badge:"10% OFF",
+badgeClass:"badge10"
+}
+]
+
+};
+    
+    /* BUY PAGE AUTO FILL */
+
+function buyNow(productName, productPrice){
+
+localStorage.setItem("productName", productName);
+localStorage.setItem("productPrice", productPrice);
+
+window.location.href = "buy.html";
+
+}
+
+/* SHOW PRODUCTS */
+
+function showOffer(percent){
+
+sectionTitle.innerHTML = percent + "% Luxury Premium Offers";
+
+products.innerHTML = "";
+
+data[percent].forEach(item=>{
+
+products.innerHTML += `
+
+<div class="product-card">
+
+<div class="product-image">
+
+<span class="badge ${item.badgeClass}">
+${item.badge}
+</span>
+
+<img src="${item.img}">
+
+</div>
+
+<div class="product-content">
+
+<h2>${item.name}</h2>
+
+<p>
+Premium luxury quality fashion wear designed for stylish modern men collection.
+</p>
+
+<div class="price-box">
+
+<span class="old-price">${item.old}</span>
+
+<span class="new-price">${item.newp}</span>
+
+</div>
+
+<button class="buy-btn"
+onclick="buyNow(
+'${item.name}',
+'${item.newp}'
+)">
+Buy Now
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* DEFAULT */
+
+showOffer("50");
+
+/* OPEN ADMIN */
+
+function openUpload(offer){
+
+currentOffer = offer;
+
+document.getElementById("adminPanel").style.display = "block";
+
+}
+
+/* PASSWORD */
+
+function checkPassword(){
+
+const password = document.getElementById("adminPassword").value;
+
+if(password === "Ricky12.@"){
+
+document.getElementById("uploadBox").style.display = "block";
+
+alert("Upload Panel Opened");
+
+}else{
+
+alert("Wrong Password");
+
+}
+
+}
+
+/* UPLOAD */
+
+function uploadProduct(){
+
+const file = document.getElementById("imageInput").files[0];
+
+if(!file){
+
+alert("Select Image");
+
+return;
+
+}
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+let badgeClass = "badge50";
+let badgeText = "50% OFF";
+
+if(currentOffer === "25"){
+badgeClass = "badge25";
+badgeText = "25% OFF";
+}
+
+if(currentOffer === "20"){
+badgeClass = "badge20";
+badgeText = "20% OFF";
+}
+
+if(currentOffer === "10"){
+badgeClass = "badge10";
+badgeText = "10% OFF";
+}
+
+data[currentOffer].push({
+
+img:e.target.result,
+name:document.getElementById("productName").value,
+old:document.getElementById("oldPrice").value,
+newp:document.getElementById("newPrice").value,
+badge:badgeText,
+badgeClass:badgeClass
+
+});
+
+showOffer(currentOffer);
+
+alert("Offer Uploaded Successfully");
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+</script>
+
+</body>
+</html>

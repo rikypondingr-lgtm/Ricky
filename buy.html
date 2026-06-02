@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buy Product</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#07111f;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+color:white;
+}
+
+.buy-box{
+width:100%;
+max-width:600px;
+background:rgba(255,255,255,0.08);
+padding:40px;
+border-radius:30px;
+box-shadow:0 20px 50px rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+}
+
+.buy-box h1{
+margin-bottom:25px;
+text-align:center;
+color:#f8d37b;
+}
+
+.buy-box input,
+.buy-box textarea{
+width:100%;
+padding:16px;
+margin-top:18px;
+border:none;
+border-radius:15px;
+outline:none;
+font-size:16px;
+}
+
+.buy-btn{
+width:100%;
+padding:18px;
+margin-top:25px;
+border:none;
+border-radius:50px;
+background:linear-gradient(135deg,#25D366,#128C7E);
+color:white;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+transition:0.4s;
+}
+
+.buy-btn:hover{
+transform:scale(1.03);
+}
+
+</style>
+</head>
+<body>
+
+<div class="buy-box">
+
+<h1>Buy Product</h1>
+
+<input type="text" id="productName" readonly>
+
+<input type="text" id="productPrice" readonly>
+
+<input type="text" id="customerName" placeholder="Enter Your Name">
+
+<input type="tel" id="customerNumber" placeholder="Enter Mobile Number">
+
+<textarea id="customerLocation"
+placeholder="Enter Delivery Location"></textarea>
+
+<button class="buy-btn" onclick="submitOrder()">
+Confirm Order
+</button>
+
+</div>
+<script type="module">
+
+/* FIREBASE IMPORT */
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAWdLzvzX2ZEENXyx8BB0MJ5g_PKMQhhQw",
+  authDomain: "startup-x-7d4f9.firebaseapp.com",
+  databaseURL: "https://startup-x-7d4f9-default-rtdb.firebaseio.com",
+  projectId: "startup-x-7d4f9",
+  storageBucket: "startup-x-7d4f9.firebasestorage.app",
+  messagingSenderId: "722684377803",
+  appId: "1:722684377803:web:77541476e7b9bbe806b94e"
+};
+
+/* FIREBASE INIT */
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+/* AUTO FILL PRODUCT */
+
+document.getElementById("productName").value =
+localStorage.getItem("productName");
+
+document.getElementById("productPrice").value =
+localStorage.getItem("productPrice");
+
+/* SUBMIT ORDER */
+
+window.submitOrder = async function(){
+
+const product =
+document.getElementById("productName").value;
+
+const price =
+document.getElementById("productPrice").value;
+
+const name =
+document.getElementById("customerName").value;
+
+const number =
+document.getElementById("customerNumber").value;
+
+const location =
+document.getElementById("customerLocation").value;
+
+if(name === "" || number === "" || location === ""){
+
+alert("Fill all details");
+
+return;
+
+}
+
+try{
+
+await addDoc(collection(db,"orders"),{
+
+product:product,
+price:price,
+name:name,
+number:number,
+location:location,
+time:new Date()
+
+});
+
+alert(
+"Order Confirmed!\n\n" +
+"Product: " + product + "\n" +
+"Price: " + price + "\n" +
+"Name: " + name + "\n" +
+"Mobile: " + number + "\n" +
+"Location: " + location
+);
+
+document.getElementById("customerName").value="";
+document.getElementById("customerNumber").value="";
+document.getElementById("customerLocation").value="";
+
+}
+catch(error){
+
+alert("Error : " + error);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
